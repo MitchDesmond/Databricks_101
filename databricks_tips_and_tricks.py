@@ -1,17 +1,39 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC <img src="https://wafid.co/wp-content/uploads/2020/02/Language-Learning-Tips-and-Tricks.jpg" alt="Koalas" width="1200"/>
+# MAGIC <img src="https://wafid.co/wp-content/uploads/2020/02/Language-Learning-Tips-and-Tricks.jpg" alt="Koalas" width="900"/>
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Keyboard Shortcut
+# MAGIC **For full list of keyboard shortcuts click help > keyboard shortcuts**
 # MAGIC 
-# MAGIC # Databricks Tips & Tricks
-# MAGIC 1. Magic Commands
-# MAGIC 2. Temporary Views
-# MAGIC 3. Display Function
-# MAGIC 4. Multi-Cursor
-# MAGIC 5. Format SQL code
-# MAGIC 6. Performance Tips
-# MAGIC 7. Table Commands
-# MAGIC 8. Jobs
-# MAGIC 9. Notebook Settings
+# MAGIC - Ctrl+Option+F	:	Find and Replace
+# MAGIC - ⌘+Shift+F	:	Format code
+# MAGIC - **Shift+Enter	:	Run command and move to next cell**
+# MAGIC - Option+Enter	:	Run command and insert new cell below
+# MAGIC - Ctrl+Enter	:	Run command (do not go to next cell)
+# MAGIC - Shift+Option+Enter	:	Run all commands
+# MAGIC - ⌘+F8	:	Run all above commands (exclusive)
+# MAGIC - ⌘+F10	:	Run all below commands (inclusive)
+# MAGIC - Shift+Ctrl+Enter	:	Run selected text
+# MAGIC - Option+Up/Down	:	Move to previous/next cell
+# MAGIC - Ctrl+Option+P	:	Insert a cell above
+# MAGIC - Ctrl+Option+N	:	Insert a cell below
+# MAGIC - Ctrl+Option+-	:	Split a cell at cursor
+# MAGIC - Ctrl+Option+Up	:	Move a cell up
+# MAGIC - Ctrl+Option+Down	:	Move a cell down
+# MAGIC - Ctrl+Option+M	:	Toggle comments panel
+# MAGIC - Ctrl+Option+D	:	Delete current cell
+# MAGIC - Up	:	Move up or to previous cell
+# MAGIC - Down	:	Move down or to next cell
+# MAGIC - Ctrl+Space	:	Autocomplete
+# MAGIC - ⌘+Z	:	Undo typing
+# MAGIC - ⌘+Shift+Z	:	Redo typing
+# MAGIC - ⌘+/	:	Toggle line comment
+# MAGIC - ⌘+K,⌘+C	:	Add line comment
+# MAGIC - ⌘+K,⌘+U	:	Remove line comment
+# MAGIC - ⌘+Click	:	Select multiple cells
 
 # COMMAND ----------
 
@@ -56,6 +78,35 @@ df_airlines = spark.read.option("header",True).csv("/databricks-datasets/asa/air
 
 # MAGIC %fs
 # MAGIC ls /databricks-datasets/
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Importing Data
+# MAGIC   
+# MAGIC In this section, you download a dataset from the web and upload it to Databricks File System (DBFS).
+# MAGIC 
+# MAGIC 1. Navigate to https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/ and download both `winequality-red.csv` and `winequality-white.csv` to your local machine.
+# MAGIC 
+# MAGIC 1. From this Databricks notebook, select *File* > *Upload Data*, and drag these files to the drag-and-drop target to upload them to the Databricks File System (DBFS). 
+# MAGIC 
+# MAGIC 1. Click *Next*. Some auto-generated code to load the data appears. Select *pandas*, and copy the example code. 
+# MAGIC 
+# MAGIC 1. Create a new cell, then paste in the sample code. It will look similar to the code shown in the following cell. Make these changes:
+# MAGIC   - Pass `sep=';'` to `pd.read_csv`
+# MAGIC   - Change the variable names from `df1` and `df2` to `white_wine` and `red_wine`, as shown in the following cell.
+
+# COMMAND ----------
+
+# If you have the File > Upload Data menu option, follow the instructions in the previous cell to upload the data from your local machine.
+# The generated code, including the required edits described in the previous cell, is shown here for reference.
+
+import pandas as pd
+
+# In the following lines, replace <username@...> with your username.
+white_wine = pd.read_csv("/dbfs/FileStore/shared_uploads/<username@...>/winequality_white.csv", sep=';')
+red_wine = pd.read_csv("/dbfs/FileStore/shared_uploads/<username@....>/winequality_red.csv", sep=';')
+
 
 # COMMAND ----------
 
