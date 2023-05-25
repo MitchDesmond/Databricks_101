@@ -2,11 +2,11 @@
 # MAGIC %md
 # MAGIC # Intro
 # MAGIC The purpose of this notebook is to simply test the dolly model **without training**, the model is available on Hugging Face as [databricks/dolly-v2-12b](https://huggingface.co/databricks/dolly-v2-12b).  The purpose to dolly is to create similar outputs to ChatGPT with a much lower cost.  For more information please see the [Original Blog Post](https://www.databricks.com/blog/2023/03/24/hello-dolly-democratizing-magic-chatgpt-open-models.html).
-# MAGIC 
+# MAGIC
 # MAGIC If you would like to learn how to train dolly for your own use case and corpora please see the [git page](https://github.com/databrickslabs/dolly).
-# MAGIC 
+# MAGIC
 # MAGIC You can also watch a [youtube demo](https://www.youtube.com/watch?v=Xp0sAghk28M&ab_channel=AdvancingAnalytics) of the below code.
-# MAGIC 
+# MAGIC
 # MAGIC [Basic info on accelerate](https://huggingface.co/blog/accelerate-large-models)
 
 # COMMAND ----------
@@ -35,8 +35,10 @@ from transformers import (
     PreTrainedTokenizer
 )
 
-tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v2-12b", padding_side="left")
-model = AutoModelForCausalLM.from_pretrained("databricks/dolly-v2-12b", device_map="auto", trust_remote_code=True, offload_folder="offload")
+#tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v2-12b", padding_side="left")
+#model = AutoModelForCausalLM.from_pretrained("databricks/dolly-v2-12b", device_map="auto", trust_remote_code=True, offload_folder="offload")
+tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v2-7b", padding_side="left")
+model = AutoModelForCausalLM.from_pretrained("databricks/dolly-v2-7b", device_map="auto", trust_remote_code=True, offload_folder="offload")
 
 # COMMAND ----------
 
